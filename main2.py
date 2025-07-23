@@ -15,11 +15,11 @@ def configuraNavegador(caminho):
 
     while True:
         try:
-            if pyautogui.locateOnScreen('google.png', confidence=0.9):
+            if pyautogui.locateOnScreen("google.png", confidence=0.3):
                 print('Found')
                 break
         except:
-            pyautogui.sleep(0.5)
+            pyautogui.sleep(0.2)
             print('Not Found')
     pyautogui.sleep(0.5)
 
@@ -28,33 +28,35 @@ def configuraNavegador(caminho):
     pyautogui.press('enter')
     pyautogui.sleep(1)
 
-    local = pyautogui.locateOnScreen('arquivo_html_1.png', confidence=0.5)
-    if local:
-        centro = pyautogui.center(local)
-        pyautogui.moveTo(centro)
-        pyautogui.click()
-
+    pyautogui.press('tab')
     pyautogui.sleep(0.5)
-
     pyautogui.press('down')
-    pyautogui.press('enter')
-
-    # local2 = pyautogui.locateOnScreen('escolher_arquivo.png', confidence=0.5)
-    # if local2:
-    #     centro = pyautogui.center(local2)
-    #     pyautogui.moveTo(centro)
 
     pyautogui.press('tab')
     pyautogui.press('tab')
     pyautogui.press('tab')
     pyautogui.press('enter')
 
-    pyautogui.sleep(1)
+    pyautogui.sleep(2)
 
     pyautogui.write(caminho)
 
     pyautogui.sleep(0.5)
     pyautogui.press('enter')
+
+    pyautogui.sleep(5)
+
+    while True:
+        try:
+            if pyautogui.locateOnScreen("ok.png", confidence=0.3):
+                print('Found')
+                break
+        except:
+            pyautogui.sleep(0.2)
+            print('Not Found')
+
+    pyautogui.press('tab')
+    pyautogui.press('enter')        
 
     # pyautogui.write(r'C:\Users\Carlos\Downloads')
     # pyautogui.press('enter')
