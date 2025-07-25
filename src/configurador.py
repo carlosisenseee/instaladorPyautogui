@@ -7,6 +7,7 @@ from tkinter import messagebox
 mensagem = r'\\fs01\informatica$\PROGRAMA ADVOGADOS'
 
 def configuraNavegador(caminho):
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     pyautogui.press('win')
     time.sleep(1)
     pyautogui.write('Chrome')
@@ -15,7 +16,7 @@ def configuraNavegador(caminho):
 
     while True:
         try:
-            if pyautogui.locateOnScreen('google.png', confidence=0.9):
+            if pyautogui.locateOnScreen(os.path.join(BASE_DIR, "Assets","google.png"), confidence=0.6):
                 print('Found')
                 break
         except:
@@ -28,7 +29,7 @@ def configuraNavegador(caminho):
     pyautogui.press('enter')
     pyautogui.sleep(1)
 
-    local = pyautogui.locateOnScreen('arquivo_html_1.png', confidence=0.5)
+    local = pyautogui.locateOnScreen(os.path.join(BASE_DIR, "Assets",'arquivo_html_1.png'), confidence=0.5)
     if local:
         centro = pyautogui.center(local)
         pyautogui.moveTo(centro)
@@ -38,12 +39,6 @@ def configuraNavegador(caminho):
 
     pyautogui.press('down')
     pyautogui.press('enter')
-
-    # local2 = pyautogui.locateOnScreen('escolher_arquivo.png', confidence=0.5)
-    # if local2:
-    #     centro = pyautogui.center(local2)
-    #     pyautogui.moveTo(centro)
-
     pyautogui.press('tab')
     pyautogui.press('tab')
     pyautogui.press('tab')

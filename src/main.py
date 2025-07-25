@@ -4,22 +4,23 @@ import time
 import tkinter as tk
 from tkinter import messagebox
 
-import main2
+import configurador
 
 # CNTL + L puxa a barra de pesquisa
 
 def mostrar_opcao():
     caminho_padrao = r'\\fs01\informatica$\PROGRAMA ADVOGADOS\12 - Outros\Sites'
     opcao_escolhida = opcao.get()
-
     janela.destroy()
+
     if opcao_escolhida == r'\Juridico Juliano': # COLOCAR NOME DO ARQUIVO
         caminho = caminho_padrao + opcao_escolhida
         print(caminho)
-        main2.configuraNavegador(caminho=caminho)
-
-    login = entrada_nome.get()
-    messagebox.showinfo("Opção Selecionada", f"Você escolheu: {opcao_escolhida} \n Login: {login}")
+        configurador.configuraNavegador(caminho=caminho)
+    elif opcao_escolhida == r'Juridico Tatiane':
+        caminho = caminho_padrao + opcao_escolhida
+        print(caminho)
+        configurador.configuraNavegador(caminho=caminho)
 
 # Criar janela
 janela = tk.Tk()
@@ -43,15 +44,9 @@ opcao.set(r"\Juridico Juliano")  # Valor inicial
 # Radio buttons
 tk.Label(janela, text="Pasta para navegador:").pack(pady=10, anchor='w', padx=10)
 tk.Radiobutton(janela, text="Juridico Juliano", variable=opcao, value=r"\Juridico Juliano").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Juridico Tatiane", variable=opcao, value="Opção 2").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Juridico Cintia", variable=opcao, value="Opção 3").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 4", variable=opcao, value="Opção 4").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 5", variable=opcao, value="Opção 5").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 6", variable=opcao, value="Opção 6").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 7", variable=opcao, value="Opção 7").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 8", variable=opcao, value="Opção 8").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 9", variable=opcao, value="Opção 9").pack(anchor="w", padx=10)
-# tk.Radiobutton(janela, text="Opcao 10", variable=opcao, value="Opção 10").pack(anchor="w", padx=10)
+tk.Radiobutton(janela, text="Juridico Tatiane", variable=opcao, value=r"\Juridico Tatiane").pack(anchor="w", padx=10)
+tk.Radiobutton(janela, text="Juridico Cintia", variable=opcao, value=r"\Juridico Cintia").pack(anchor="w", padx=10)
+
 
 # Botão para mostrar a escolha
 btn_mostrar = tk.Button(janela, text="Confirmar", command=mostrar_opcao)
@@ -59,8 +54,6 @@ btn_mostrar.pack(pady=10)
 
 # Rodar interface
 janela.mainloop()
-
-main2.configuraNavegador(caminho=mostrar_opcao())
 
 # mensagem = r'\\fs01\informatica$\PROGRAMA ADVOGADOS'
 #
