@@ -8,7 +8,7 @@ mensagem = r'\\fs01\informatica$\PROGRAMA ADVOGADOS'
 
 def configuraNavegador(caminho):
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    pyautogui.press('win')
+    pyautogui.hotkey('win', 'r')
     time.sleep(1)
     pyautogui.write('Chrome')
     time.sleep(1)
@@ -24,28 +24,22 @@ def configuraNavegador(caminho):
             print('Not Found')
     pyautogui.sleep(0.5)
 
+    # Digite o url do import
     pyautogui.write('chrome://settings/importData')
     pyautogui.sleep(0.5)
     pyautogui.press('enter')
     pyautogui.sleep(1)
 
-    local = pyautogui.locateOnScreen(os.path.join(BASE_DIR, 'Assets', 'arquivo_html_1.png'), confidence=0.5)
-    if local:
-        centro = pyautogui.center(local)
-        pyautogui.moveTo(centro)
-        pyautogui.click()
-
-    pyautogui.sleep(0.5)
-
+    # Seleciona a opcao certa
+    pyautogui.press('tab')
     pyautogui.press('down')
-    pyautogui.press('enter')
-
+    pyautogui.sleep(1)
     pyautogui.press('tab', 3)
     pyautogui.press('enter')
-
     pyautogui.sleep(1)
 
-    pyautogui.write(caminho)
+    # pyautogui.write(caminho)
+    pyautogui.write(r'C:\Users\Carlos\Desktop\teste.html')
 
     pyautogui.sleep(0.5)
     pyautogui.press('enter')

@@ -18,9 +18,6 @@ def mostrar_opcao():
         print(caminho)
         configurador.configuraNavegador(caminho=caminho)
 
-    login = entrada_nome.get()
-    messagebox.showinfo("Opção Selecionada", f"Você escolheu: {opcao_escolhida} \n Login: {login}")
-
 janela = tk.Tk()
 janela.title("Menu com RadioButton")
 janela.geometry("960x540")
