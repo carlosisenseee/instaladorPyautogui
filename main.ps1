@@ -1,7 +1,7 @@
 Write-Host '=== Configuração de Navegadores (Usuário) ===' -ForegroundColor Green
 
 # ===== CONFIGURAÇÕES =====
-$HtmlBookmarksPath = 'C:\Users\Carlos\Desktop\teste.html'  # ALTERE AQUI
+$HtmlBookmarksPath = '$env:USERPROFILE\Desktop\teste.html'  # ALTERE AQUI
 $StartupUrl1 = 'https://outlook.live.com'                     # ALTERE AQUI
 $StartupUrl2 = 'https://www.oliveiraeantunes.com.br'                    # ALTERE AQUI
 
